@@ -91,11 +91,11 @@ public class Main {
 			String kelaminTemp = scan.nextLine();
 			
 			if (kelaminTemp.equals("Laki-laki")) {
-				System.out.println("Nama valid.");
+				System.out.println("Jenis kelamin valid.");
 				kelamin = "Laki-laki";
 				validKelamin = true;
 			} else if (kelaminTemp.equals("Perempuan")) {
-				System.out.println("Nama valid.");
+				System.out.println("Jenis kelamin valid.");
 				kelamin = "Perempuan";
 				validKelamin = true;
 			} else {
