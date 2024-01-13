@@ -11,7 +11,7 @@ public class Main {
 	}
 	
 	public void newKaryawan() {
-		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false, validGaji = false;
+		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false;
 		String kode, nama, kelamin, jabatan;
 		int gaji;
 		
@@ -74,7 +74,7 @@ public class Main {
 				System.out.println("Jenis kelamin tidak valid, coba lagi.");
 			}
 		}
-
+		
 	}
 	
 	public static void main(String[] args) {
