@@ -7,7 +7,35 @@ public class Main {
 	ArrayList<Employee> employees = new ArrayList<>();
 	
 	public Main() {
-		newKaryawan();
+		
+		while(true) {
+			System.out.println("+-------------------------------+");
+			System.out.println("|    PT. Mentol Management      |");
+			System.out.println("|-------------------------------|");
+			System.out.println("| 1. Input Data Karyawan        |");
+			System.out.println("| 2. View Data Karyawan     	|");
+			System.out.println("| 3. Update Data Karyawan      	|");
+			System.out.println("| 4. Delete Data Karyawan     	|");
+			System.out.println("| 5. Keluar                     |");
+			System.out.println("+-------------------------------+");
+			System.out.printf("Masukkan pilihanmu (1-5): ");
+			
+			int choice = scan.nextInt(); scan.nextLine();
+			if (choice == 1) {
+				newKaryawan();
+			} else if (choice == 2) {
+				
+			} else if (choice == 3) {
+				
+			} else if (choice == 4) {
+				
+			} else if (choice == 5) {
+				System.out.println("Program akan exit, terima kasih!");
+				System.exit(0);
+			} else {
+				System.out.println("Input salah, coba lagi.");
+			}
+		}
 	}
 	
 	public void newKaryawan() {
