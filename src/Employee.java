@@ -14,5 +14,26 @@ public class Employee {
 		this.gaji = gaji;
 		employeeCount++;
 	}
-
+	
+	public String getId() {
+		return id;
+	}
+	
+	public String getNama() {
+		return nama;
+	}
+	
+	public String getJenisKelamin() {
+		return jenisKelamin;
+	}
+	
+	public String getJabatan() {
+		return jabatan;
+	}
+	
+	public int getGaji() {
+		return gaji;
+	}
+	
+	
 }
