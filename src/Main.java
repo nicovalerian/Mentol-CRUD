@@ -13,7 +13,7 @@ public class Main {
 	public void newKaryawan() {
 		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false;
 		String kode = "", nama = "", kelamin = "", jabatan = "";
-		int gaji;
+		int gaji = 0;
 		
 		while (!validKode) {
 			System.out.println("Input kode karyawan: ");
@@ -99,6 +99,7 @@ public class Main {
 			}
 		}
 		
+		employees.add(new Employee(kode, nama, kelamin, jabatan, gaji));
 		System.out.printf("Berhasil menambahkan karyawan \"%s\" dengan id %s\n", nama, kode);
 	}
 	
