@@ -9,8 +9,12 @@ public class Main {
 	}
 	
 	public void newKaryawan() {
-		System.out.println("Input kode karyawan: ");
-		String kode = scan.nextLine();
+		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false, validGaji = false;
+		while (!validKode) {
+			System.out.println("Input kode karyawan: ");
+			String kode = scan.nextLine();
+		}
+		
 	}
 	
 	public static void main(String[] args) {
