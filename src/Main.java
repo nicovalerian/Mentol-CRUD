@@ -57,6 +57,24 @@ public class Main {
 			
 			if (alphabetCount < 3) System.out.println("Nama karyawan tidak valid, coba lagi.");
 		}
+		
+		while (!validKelamin) {
+			System.out.println("Input jenis kelamin karyawan (\"Laki-Laki\" / \"Perempuan\"): ");
+			String kelaminTemp = scan.nextLine();
+			
+			if (kelaminTemp.equals("Laki-Laki")) {
+				System.out.println("Nama valid.");
+				kelamin = "Laki-Laki";
+				validKelamin = true;
+			} else if (kelaminTemp.equals("Perempuan")) {
+				System.out.println("Nama valid.");
+				kelamin = "Perempuan";
+				validKelamin = true;
+			} else {
+				System.out.println("Jenis kelamin tidak valid, coba lagi.");
+			}
+		}
+
 	}
 	
 	public static void main(String[] args) {
