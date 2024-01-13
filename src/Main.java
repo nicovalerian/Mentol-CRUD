@@ -75,6 +75,31 @@ public class Main {
 			}
 		}
 		
+		while (!validJabatan) {
+			System.out.println("Input jabatan karyawan (\"Manager\" / \"Supervisor\" / \"Admin\"): ");
+			String jabatanTemp = scan.nextLine();
+			
+			if (jabatanTemp.equals("Manager")) {
+				System.out.println("Jabatan valid.");
+				jabatan = "Manager";
+				gaji = 8000000;
+				validJabatan = true;
+			} else if (jabatanTemp.equals("Supervisor")) {
+				System.out.println("Jabatan valid.");
+				jabatan = "Supervisor";
+				gaji = 6000000;
+				validJabatan = true;
+			} else if (jabatanTemp.equals("Admin")){
+				System.out.println("Jabatan valid.");
+				jabatan = "Admin";
+				gaji = 4000000;
+				validJabatan = true;
+			} else {
+				System.out.println("Jabatan tidak valid, coba lagi.");
+			}
+		}
+		
+		
 	}
 	
 	public static void main(String[] args) {
