@@ -46,7 +46,7 @@ public class Main {
 		while (!validKode) {
 			System.out.println("Input kode karyawan: ");
 			String kodeTemp = scan.nextLine();
-			// Untuk validasi kode karyawan kita gunakan regex (MM-XXXX) --> "[A-Za-z]+-[0-9]+"
+			// Untuk validasi kode karyawan kita gunakan regex (MM-XXXX) --> "^[A-Za-z]{2}-[0-9]{4}$"
 			Pattern pattern = Pattern.compile("^[A-Za-z]{2}-[0-9]{4}$", Pattern.CASE_INSENSITIVE);
 			/* Menerima hanya string (case insensitive) yang dimulai 2 huruf "MM", 
 			 * diikuti simbol '-',
