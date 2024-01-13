@@ -34,6 +34,29 @@ public class Main {
 			}
 		}
 		
+		while (!validNama) {
+			System.out.println("Input nama karyawan: ");
+			String namaTemp = scan.nextLine();
+			
+			int alphabetCount = 0;
+			// Nama yang valid adalah string yang mengandung setidaknya 3 huruf alphabet
+			
+			for (int i = 0; i < namaTemp.length(); i++) {
+				char c = namaTemp.charAt(i);
+				if (Character.isAlphabetic(c)) {
+					alphabetCount++;
+					
+					if (alphabetCount >= 3) {
+						validNama = true;
+						nama = namaTemp;
+						System.out.println("Nama karyawan valid.");
+						break;
+					}
+				}
+			}
+			
+			if (alphabetCount < 3) System.out.println("Nama karyawan tidak valid, coba lagi.");
+		}
 	}
 	
 	public static void main(String[] args) {
