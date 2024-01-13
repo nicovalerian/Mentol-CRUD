@@ -12,7 +12,7 @@ public class Main {
 	
 	public void newKaryawan() {
 		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false;
-		String kode, nama, kelamin, jabatan;
+		String kode = "", nama = "", kelamin = "", jabatan = "";
 		int gaji;
 		
 		while (!validKode) {
@@ -35,7 +35,7 @@ public class Main {
 		}
 		
 		while (!validNama) {
-			System.out.println("Input nama karyawan: ");
+			System.out.println("Input nama karyawan [>=3]: ");
 			String namaTemp = scan.nextLine();
 			
 			int alphabetCount = 0;
@@ -59,12 +59,12 @@ public class Main {
 		}
 		
 		while (!validKelamin) {
-			System.out.println("Input jenis kelamin karyawan (\"Laki-Laki\" / \"Perempuan\"): ");
+			System.out.println("Input jenis kelamin karyawan [\"Laki-laki\" | \"Perempuan\"] (Case Sensitive): ");
 			String kelaminTemp = scan.nextLine();
 			
-			if (kelaminTemp.equals("Laki-Laki")) {
+			if (kelaminTemp.equals("Laki-laki")) {
 				System.out.println("Nama valid.");
-				kelamin = "Laki-Laki";
+				kelamin = "Laki-laki";
 				validKelamin = true;
 			} else if (kelaminTemp.equals("Perempuan")) {
 				System.out.println("Nama valid.");
@@ -76,7 +76,7 @@ public class Main {
 		}
 		
 		while (!validJabatan) {
-			System.out.println("Input jabatan karyawan (\"Manager\" / \"Supervisor\" / \"Admin\"): ");
+			System.out.println("Input jabatan karyawan [\"Manager\" | \"Supervisor\" | \"Admin\"] (Case Sensitive): ");
 			String jabatanTemp = scan.nextLine();
 			
 			if (jabatanTemp.equals("Manager")) {
@@ -99,7 +99,7 @@ public class Main {
 			}
 		}
 		
-		
+		System.out.printf("Berhasil menambahkan karyawan \"%s\" dengan id %s\n", nama, kode);
 	}
 	
 	public static void main(String[] args) {
