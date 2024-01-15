@@ -184,10 +184,14 @@ public class Main {
 		System.out.println("|No  |Kode Karyawan    |Nama Karyawan                 |Jenis Kelamin    |Jabatan          |Gaji Karyawan    |");
 		System.out.println("|----|-----------------|------------------------------|-----------------|-----------------|-----------------|");
 		
-		for (int i = 0; i < Employee.employeeCount; i++) {
-			Employee employee = employees.get(i);
-			System.out.printf("|%4d|%17s|%30s|%17s|%17s|%17d|\n", noCount, employee.getId(), employee.getNama(), employee.getJenisKelamin(), employee.getJabatan(), employee.getGaji());
-			noCount++;
+		if (Employee.employeeCount > 0) {
+			for (int i = 0; i < Employee.employeeCount; i++) {
+				Employee employee = employees.get(i);
+				System.out.printf("|%4d|%17s|%30s|%17s|%17s|%17d|\n", noCount, employee.getId(), employee.getNama(), employee.getJenisKelamin(), employee.getJabatan(), employee.getGaji());
+				noCount++;
+			}
+		} else {
+			System.out.println("|    |                 |                Belum ada data|                 |                 |                 |");
 		}
 		
 		System.out.println("|----|-----------------|------------------------------|-----------------|-----------------|-----------------|");
@@ -307,6 +311,7 @@ public class Main {
 		
 		System.out.printf("Karyawan \"%s\" telah berhasil dihapus.\n", employees.get(idx-1).getNama());
 		employees.remove(idx-1);
+		Employee.employeeCount--;
 	}
 	
 	public static void main(String[] args) {
