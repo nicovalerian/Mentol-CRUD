@@ -28,7 +28,7 @@ public class Main {
 			} else if (choice == 3) {
 				updateKaryawan();
 			} else if (choice == 4) {
-				
+				deleteKaryawan();
 			} else if (choice == 5) {
 				System.out.println("Program akan exit, terima kasih!");
 				System.exit(0);
@@ -293,6 +293,20 @@ public class Main {
 		employee.setJenisKelamin(kelamin);
 		employee.setNama(nama);
 		System.out.printf("Karyawan telah diupdate menjadi \"%s dengan id %s\"\n", nama, kode);
+	}
+	
+	public void deleteKaryawan() {
+		viewTable();
+		System.out.println("Pilih no karyawan yang ingin dihapus: ");
+		int idx = scan.nextInt(); scan.nextLine();
+		
+		if (idx <= 0 || idx > Employee.employeeCount) {
+			System.out.println("No. karyawan tidak valid, coba lagi.");
+			return;
+		}
+		
+		System.out.printf("Karyawan \"%s\" telah berhasil dihapus.\n", employees.get(idx-1).getNama());
+		employees.remove(idx-1);
 	}
 	
 	public static void main(String[] args) {
