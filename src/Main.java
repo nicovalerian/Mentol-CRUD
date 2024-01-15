@@ -24,7 +24,7 @@ public class Main {
 			if (choice == 1) {
 				newKaryawan();
 			} else if (choice == 2) {
-				
+				viewTable();
 			} else if (choice == 3) {
 				
 			} else if (choice == 4) {
@@ -173,6 +173,24 @@ public class Main {
 		employees.add(new Employee(kode, nama, kelamin, jabatan, gaji));
 		System.out.printf("Berhasil menambahkan karyawan \"%s\" dengan id %s\n", nama, kode);
 		bonusCalc(jabatan);
+	}
+	
+	public void viewTable() {
+		Comparator<Employee> nameComparator = Comparator.comparing(Employee::getNama);
+		Collections.sort(employees, nameComparator);
+		
+		int noCount = 1;
+		System.out.println("|----|-----------------|------------------------------|-----------------|-----------------|-----------------|");
+		System.out.println("|No  |Kode Karyawan    |Nama Karyawan                 |Jenis Kelamin    |Jabatan          |Gaji Karyawan    |");
+		System.out.println("|----|-----------------|------------------------------|-----------------|-----------------|-----------------|");
+		
+		for (int i = 0; i < Employee.employeeCount; i++) {
+			Employee employee = employees.get(i);
+			System.out.printf("|%4d|%17s|%30s|%17s|%17s|%17d|\n", noCount, employee.getId(), employee.getNama(), employee.getJenisKelamin(), employee.getJabatan(), employee.getGaji());
+			noCount++;
+		}
+		
+		System.out.println("|----|-----------------|------------------------------|-----------------|-----------------|-----------------|");
 	}
 	
 	public static void main(String[] args) {
