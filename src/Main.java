@@ -26,7 +26,7 @@ public class Main {
 			} else if (choice == 2) {
 				viewTable();
 			} else if (choice == 3) {
-				
+				updateKaryawan();
 			} else if (choice == 4) {
 				
 			} else if (choice == 5) {
@@ -191,6 +191,108 @@ public class Main {
 		}
 		
 		System.out.println("|----|-----------------|------------------------------|-----------------|-----------------|-----------------|");
+	}
+	
+	public void updateKaryawan() {
+		viewTable();
+		System.out.println("Pilih no karyawan yang ingin diupdate: ");
+		int idx = scan.nextInt(); scan.nextLine();
+		
+		if (idx <= 0 || idx > Employee.employeeCount) {
+			System.out.println("No. karyawan tidak valid, coba lagi.");
+			return;
+		}
+		
+		// Same code snippet from newKaryawan(), it's redundant (to be fixed)
+		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false;
+		String kode = "", nama = "", kelamin = "", jabatan = "";
+		int gaji = 0;
+		
+		while (!validKode) {
+			System.out.println("Input kode karyawan: ");
+			String kodeTemp = scan.nextLine();
+			Pattern pattern = Pattern.compile("^[A-Za-z]{2}-[0-9]{4}$", Pattern.CASE_INSENSITIVE);
+			Matcher matcher = pattern.matcher(kodeTemp);
+			if (matcher.matches()) {
+				kode = kodeTemp;
+				validKode = true;
+				System.out.println("Kode karyawan valid.");
+			} else {
+				System.out.println("Kode karyawan tidak valid, coba lagi.");
+			}
+		}
+		
+		while (!validNama) {
+			System.out.println("Input nama karyawan [>=3]: ");
+			String namaTemp = scan.nextLine();
+			
+			int alphabetCount = 0;
+			
+			for (int i = 0; i < namaTemp.length(); i++) {
+				char c = namaTemp.charAt(i);
+				if (Character.isAlphabetic(c)) {
+					alphabetCount++;
+					
+					if (alphabetCount >= 3) {
+						validNama = true;
+						nama = namaTemp;
+						System.out.println("Nama karyawan valid.");
+						break;
+					}
+				}
+			}
+			
+			if (alphabetCount < 3) System.out.println("Nama karyawan tidak valid, coba lagi.");
+		}
+		
+		while (!validKelamin) {
+			System.out.println("Input jenis kelamin karyawan [\"Laki-laki\" | \"Perempuan\"] (Case Sensitive): ");
+			String kelaminTemp = scan.nextLine();
+			
+			if (kelaminTemp.equals("Laki-laki")) {
+				System.out.println("Jenis kelamin valid.");
+				kelamin = "Laki-laki";
+				validKelamin = true;
+			} else if (kelaminTemp.equals("Perempuan")) {
+				System.out.println("Jenis kelamin valid.");
+				kelamin = "Perempuan";
+				validKelamin = true;
+			} else {
+				System.out.println("Jenis kelamin tidak valid, coba lagi.");
+			}
+		}
+		
+		while (!validJabatan) {
+			System.out.println("Input jabatan karyawan [\"Manager\" | \"Supervisor\" | \"Admin\"] (Case Sensitive): ");
+			String jabatanTemp = scan.nextLine();
+			
+			if (jabatanTemp.equals("Manager")) {
+				System.out.println("Jabatan valid.");
+				jabatan = "Manager";
+				gaji = 8000000;
+				validJabatan = true;
+			} else if (jabatanTemp.equals("Supervisor")) {
+				System.out.println("Jabatan valid.");
+				jabatan = "Supervisor";
+				gaji = 6000000;
+				validJabatan = true;
+			} else if (jabatanTemp.equals("Admin")){
+				System.out.println("Jabatan valid.");
+				jabatan = "Admin";
+				gaji = 4000000;
+				validJabatan = true;
+			} else {
+				System.out.println("Jabatan tidak valid, coba lagi.");
+			}
+		}
+		
+		Employee employee = employees.get(idx-1);
+		employee.setGaji(gaji);
+		employee.setId(kode);
+		employee.setJabatan(jabatan);
+		employee.setJenisKelamin(kelamin);
+		employee.setNama(nama);
+		System.out.printf("Karyawan telah diupdate menjadi \"%s dengan id %s\"\n", nama, kode);
 	}
 	
 	public static void main(String[] args) {
