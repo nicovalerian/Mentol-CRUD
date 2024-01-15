@@ -62,7 +62,7 @@ public class Main {
 		}
 
 		if (jabatan.equals("Manager")) {
-			System.out.printf("Bonus sebesar 10%% telah diberikan kepada karyawan dengan id ");-
+			System.out.printf("Bonus sebesar 10%% telah diberikan kepada karyawan dengan id ");
 		} else if (jabatan.equals("Supervisor")) {
 			System.out.printf("Bonus sebesar 7.5%% telah diberikan kepada karyawan dengan id ");
 		} else if (jabatan.equals("Admin")) {
