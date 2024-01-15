@@ -35,5 +35,7 @@ public class Employee {
 		return gaji;
 	}
 	
-	
+	public void setGaji(int newGaji) {
+		this.gaji = newGaji;
+	}
 }
