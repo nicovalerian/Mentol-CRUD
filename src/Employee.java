@@ -38,4 +38,20 @@ public class Employee {
 	public void setGaji(int newGaji) {
 		this.gaji = newGaji;
 	}
+	
+	public void setJabatan(String jabatan) {
+		this.jabatan = jabatan;
+	}
+	
+	public void setJenisKelamin(String jenisKelamin) {
+		this.jenisKelamin = jenisKelamin;
+	}
+	
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }
