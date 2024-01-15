@@ -33,7 +33,7 @@ public class Main {
 				System.out.println("Program akan exit, terima kasih!");
 				System.exit(0);
 			} else {
-				System.out.println("Input salah, coba lagi.");
+				System.out.println("Input belum benar, coba lagi.");
 			}
 		}
 	}
