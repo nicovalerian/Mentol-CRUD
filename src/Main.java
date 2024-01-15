@@ -38,6 +38,49 @@ public class Main {
 		}
 	}
 	
+	public void bonusCalc(String jabatan) {
+		int count = 0;
+		for (Employee employee : employees) { // Iterate through the data to count the number of employees with the specified job position
+			if (jabatan.equals(employee.getJabatan())) {
+				count++;
+			}
+		}
+		
+		int minThreshold = 3; // At least 3 employees registered before is needed for them receive bonuses
+		
+		if (count <= minThreshold) {
+			return;
+		}
+		
+		double bonusGaji = 0;
+		if (jabatan.equals("Manager")) {
+			bonusGaji = 1.1;
+		} else if (jabatan.equals("Supervisor")) {
+			bonusGaji = 1.075;
+		} else if (jabatan.equals("Admin")) {
+			bonusGaji = 1.05;
+		}
+
+		if (jabatan.equals("Manager")) {
+			System.out.printf("Bonus sebesar 10%% telah diberikan kepada karyawan dengan id ");-
+		} else if (jabatan.equals("Supervisor")) {
+			System.out.printf("Bonus sebesar 7.5%% telah diberikan kepada karyawan dengan id ");
+		} else if (jabatan.equals("Admin")) {
+			System.out.printf("Bonus sebesar 5%% telah diberikan kepada karyawan dengan id ");
+		}
+		
+		for (int i = 0; i < Employee.employeeCount - 1; i++) { // Employee.employeeCount - 1 is because we do not want to iterate through the newly registered employee
+			Employee employee = employees.get(i);
+			
+			if (jabatan.equals(employee.getJabatan())) {
+				int newGaji = (int) (employee.getGaji() * bonusGaji);
+				employee.setGaji(newGaji);
+				if (i != Employee.employeeCount - 2) System.out.printf("%s, ", employee.getId());
+				else System.out.printf("%s\n", employee.getId());
+			}
+		}
+	}
+	
 	public void newKaryawan() {
 		Boolean validKode = false, validNama = false, validKelamin = false, validJabatan = false;
 		String kode = "", nama = "", kelamin = "", jabatan = "";
@@ -129,6 +172,7 @@ public class Main {
 		
 		employees.add(new Employee(kode, nama, kelamin, jabatan, gaji));
 		System.out.printf("Berhasil menambahkan karyawan \"%s\" dengan id %s\n", nama, kode);
+		bonusCalc(jabatan);
 	}
 	
 	public static void main(String[] args) {
